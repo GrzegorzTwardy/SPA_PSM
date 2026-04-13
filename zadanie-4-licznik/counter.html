@@ -8,10 +8,15 @@
     <style>
         body {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            text-align: center;
+            display: flex;
+            height: 80vh;
+            justify-content: center;
+            align-items: center;
         }
 
         button {
+            min-width: 100px;
+            height: 100px;
             font-size: 1.2em;
             font-weight: bold;
             border: 0;
@@ -29,9 +34,8 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ counter }}</h1>
         <button @click.left="decrement" @contextmenu.prevent="increment">
-            Click Me
+            {{ counter }}
         </button>
     </div>
 
