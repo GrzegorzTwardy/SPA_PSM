@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <label for="title">Enter the book's title:</label><br>
+            <input id="title" type="text" v-model="title"><br><br>
+            <label for="name">Enter the author's first name:</label><br>
+            <input id="name" type="text" v-model="name"><br><br>
+            <label for="surname">Enter the author's last name:</label><br>
+            <input id="surname" type="text" v-model="surname"><br><br>
+            <input type="button" value="Zapisz" @click="log()">
+        </form>
+    </div>
+    <script>
+    Vue.createApp({
+        data() {
+            return {
+                title: '',
+                name: '',
+                surname: '',
+            }
+        },
+        methods: {
+            log: function() {
+                console.log(`Title: ${this.title}\nAuthor: ${this.name} ${this.surname}`);
+            }
+        }
+    }).mount('#app')
+    </script>
+</body>
+</html>

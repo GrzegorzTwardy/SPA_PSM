@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firma</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="company.css">
 </head>
 <body>
     <div id="app">
@@ -20,28 +21,6 @@
             <a v-bind:href="website">http://www.unikpol.pl</a>
         </p>
     </div>
-    <style>
-        html, body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        body {
-            width: 100%;
-        }
-        #app{
-            font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            font-size: x-large;
-            text-align: center;
-            width: 25em;
-            height: 10em;
-            border: 1px solid black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
     <script>
     Vue.createApp({
         data() {
