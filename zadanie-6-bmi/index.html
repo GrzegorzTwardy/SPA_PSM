@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <script type="module" src="main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <label for="height">Enter your height in cm: </label>
+    <input type="text" name="height" id="height" v-model="height">
+    <br>
+    <br>
+    <label for="weight">Enter your height in kg: </label>
+    <input type="text" name="weight" id="weight" v-model="weight">
+
+    <h4>Your BMI: {{bmiMessage}}</h4>
+</div>
+</body>
+</html>
