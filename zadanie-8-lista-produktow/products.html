@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div id="app">
+        <label for="filter">Filtruj:</label>
+        <input type="text" id="filter" v-model="filter"><br>
+        <table>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Cena jednostkowa</th>
+                <th>Ilość</th>
+                <th>Wartość</th>
+            </tr>
+            <tr v-for="product in filteredProducts" :key="product.name">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.price * product.quantity }}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+    Vue.createApp({
+        data() {
+            return {
+                products: [
+                    { name: 'Pomidory włoskie wiśniowe', price: 10.0, quantity: 5 },
+                    { name: 'Szynka Schwarzwaldzka', price: 20.0, quantity: 3 },
+                    { name: 'Woda niegazowana 5l', price: 15.5, quantity: 2 }
+                ],
+                filter: ''
+            }
+        },
+        computed: {
+            filteredProducts() {
+                return this.products.filter(product =>
+                    product.name.toLowerCase().includes(this.filter.toLowerCase())
+                );
+            }
+        }
+    }).mount('#app')
+    </script>
+</body>
+</html>
