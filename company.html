@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <b> {{company}} </b>
+            <br>
+            {{street}}
+            <br>
+            {{postcode}} {{locality}}
+            <br>
+            tel. {{phones[0]}}, {{phones[1]}}
+            <br>
+            <a v-bind:href="website">http://www.unikpol.pl</a>
+        </p>
+    </div>
+    <style>
+        html, body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        body {
+            width: 100%;
+        }
+        #app{
+            font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            font-size: x-large;
+            text-align: center;
+            width: 25em;
+            height: 10em;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script>
+    Vue.createApp({
+        data() {
+            return {
+                company: 'Unikpol s. a.'.toUpperCase(),
+                street: 'ul. Ukryta 5',
+                postcode: '02-114',
+                locality: 'Rawa Mazowiecka',
+                phones: ['22 345 90 21', '888 213 992'],
+                website: 'http://www.unikpol.pl'
+            }
+        }
+    }).mount('#app')
+    </script>
+</body>
+</html>
