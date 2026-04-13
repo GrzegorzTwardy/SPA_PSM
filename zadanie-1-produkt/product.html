@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            margin: 20px;
+            color: #000;
+        }
+        .receipt {
+            max-width: 350px;
+        }
+        .receipt-title {
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .receipt-total {
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 5px;
+        }
+        .separator {
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" class="receipt">
+        <div class="receipt-title">RECEIPT</div>
+        <div class="separator">--------------------</div>
+        <div>Product: {{ product }}</div>
+        <div>Unit Price: {{ unitPrice }} zł</div>
+        <div>Quantity: {{ quantity }}</div>
+        <div>Amount: {{ amount }} zł</div>
+        <div>VAT Tax Rate: {{ vatRate }}%</div>
+        <div class="separator">====================</div>
+        <div class="receipt-total">Total: {{ total }} zł</div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    product: 'book',
+                    unitPrice: 17,
+                    quantity: 3,
+                    vatRate: 23
+                }
+            },
+            computed: {
+                amount() {
+                    return this.unitPrice * this.quantity;
+                },
+                total() {
+                    const calculatedTotal = this.amount + (this.amount * (this.vatRate / 100));
+                    return calculatedTotal.toFixed(2);
+                }
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>
